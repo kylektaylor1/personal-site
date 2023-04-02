@@ -1,0 +1,18 @@
+version: '3.9'
+
+services:
+    postgres:
+        image: postgres:14
+        restart: always
+        container_name: kyle_site_db
+        volumes:
+            - kyle_site_db_data:/var/lib/postgresql/data
+        ports:
+            - '5432:5432'
+        environment:
+            POSTGRES_USER: postgres
+            POSTGRES_PASSWORD: postgres
+            POSTGRES_DB: kyle_site
+            PG_PORT: 5432
+volumes:
+    kyle_site_db_data:
